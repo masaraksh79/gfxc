@@ -1,6 +1,7 @@
 #ifndef GFXC_UTILS_
 #define GFXC_UTILS_
 
+typedef unsigned int   m32;
 typedef unsigned short m16;
 typedef unsigned char m8;
 
@@ -17,6 +18,7 @@ stf_gfx_ids_t;
 #define MMX_GFX_DELIM '|'
 #define MMX_GFX_BORDER '-'
 #define MMX_GFX_BSUFFIX "---------"
+#define MMX_GFX_DELIMS 20
 #define MMX_GFX_SPACE ' '
 #define MMX_GFX_EOL '\n'
 

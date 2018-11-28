@@ -9,15 +9,8 @@
 // Randomize ids and slots requested each time called
 void gfx_gen_ids_slots(m16 max_cycle)
 {
-   static m8 once = 0;
    m8 i, radios_participating = 0;
    int with_ids = 0, with_slots = 1;
-
-   if (!once)
-   {
-      srand(1567);
-      once = 1;
-   }
 
    if (0 <= (radios_participating = random() % MAX_RADIOS_NEED_DATA))
    {

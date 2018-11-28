@@ -12,7 +12,7 @@ int get_id_length(m16 id)
 void gfx_set_border(stf_gfx_ids_t *rdios, m8 elms, m8 max_slots, m16* occ_slots, m16* free_slots)
 {
    m8 i, j;
-   m16 slots = 0; 
+   m16 slots = 0;
 
    // Print the border
    for (i = 0; i < elms; i++)
@@ -32,6 +32,9 @@ void gfx_set_border(stf_gfx_ids_t *rdios, m8 elms, m8 max_slots, m16* occ_slots,
    }
    
    printf(MMX_GFX_BSUFFIX);
+
+   //for (j = 0; j < MMX_GFX_DELIMS; j++) 
+   //   putchar(MMX_GFX_BORDER);
 
    putchar(MMX_GFX_EOL);
 
@@ -127,8 +130,7 @@ void gfxc__bar_by_id(stf_gfx_ids_t *rdios, m8 elms, m8 with_ids, m8 with_slots, 
    }
 
    putchar(MMX_GFX_EOL);
-
    gfx_set_border(rdios, elms, max_slots, &occ_slots, &free_slots);
-   printf("Occupied slots: %d Free slots %d Total slots %d\n", occ_slots, free_slots, max_slots);
+   printf("- Occupied slots: %d Free slots %d Total slots %d\n", occ_slots, free_slots, max_slots);
    putchar(MMX_GFX_EOL);
 }
