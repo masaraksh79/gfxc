@@ -2,17 +2,35 @@
 #include <stdlib.h>
 #include "gfxc.h"
 
+#define MAX_RADIOS_NEED_DATA  10
+#define MAX_SLOTS_PER_RADIO   10
+
+// Example of how to run the bar function per given cycle
+// Randomize ids and slots requested each time called
 void gfx_gen_ids_slots(m16 max_cycle)
 {
    static m8 once = 0;
+   m8 i, radios_participating = 0;
 
    if (!once)
    {
       srand(1567);
+      once = 1;
    }
 
-   while (tslots < max_cycle)
+   if (0 < (radios_participating = random() % MAX_RADIOS_NEED_DATA))
    {
-      
+      stf_gfx_ids_t radio_slots[radios_participating];
+
+      for (i = 0; i < radios_participating; i++)
+      {
+         radio_slots[i].slots = random() % MAX_SLOTS_PER_RADIO;
+         radio_slots[i].id    = 1 + random() % MAX_RRU_NUMBER;
+      }
+
+      printf("\nRadios participating: %d\n", radios_participating);
+
+      //Example of executing this API function
+      gfxc__bar_by_id(radio_slots, radios_participating);
    }
 }
