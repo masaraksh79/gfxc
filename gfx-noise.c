@@ -11,7 +11,7 @@ void gfx_gen_ids_slots(m16 max_cycle)
 {
    static m8 once = 0;
    m8 i, radios_participating = 0;
-   int with_slots = 1;
+   int with_ids = 0, with_slots = 1;
 
    if (!once)
    {
@@ -45,6 +45,6 @@ void gfx_gen_ids_slots(m16 max_cycle)
 
 
       //Example of executing this API function
-      gfxc__bar_by_id(radio_slots, radios_participating, with_slots);
+      gfxc__bar_by_id(radio_slots, radios_participating, with_ids, with_slots, max_cycle);
    }
 }
